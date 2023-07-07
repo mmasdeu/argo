@@ -1,0 +1,38 @@
+name = "Geometria"
+version = "1.0"
+extra_files = "src/extras"
+intro = "src/intro.lean"
+
+[[worlds]]
+name = "Tutorial World"
+id = 1
+levels = [
+  "src/tutorial_world/level*.lean"
+]
+
+[[worlds]]
+name = "Advanced Tutorial World"
+id = 2
+parents = [1]
+levels = [
+  "src/advanced_tutorial_world/level*.lean"
+]
+
+[[worlds]]
+name = "Incidence World"
+id = 3
+parents = [2]
+levels = ["src/incidence_world/level*.lean"]
+
+
+[[worlds]]
+name = "Betweenness World"
+id = 4
+parents = [3]
+levels = ["src/betweenness_world/level*.lean"]
+
+[[worlds]]
+name = "Plane Separation World"
+id = 5
+parents = [4]
+levels = ["src/plane_separation_world/level*.lean"]
