@@ -1,4 +1,3 @@
-# The Fundamental Game
+# Geometria
 
-A game to learn LEAN.
-# argo
+A game to learn LEAN and axiomatic geometry, using Hilbert axioms.
