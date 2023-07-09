@@ -2,14 +2,6 @@ import incidence_world.hilbertaxioms -- hide
 open IncidencePlane --hide
 
 
-/- Symbol:
-→ : \imp
--/
-
-/- Symbol:
-∀ : \forall
--/
-
 /- Axiom : incidence (P Q : Point) (ℓ : Line) :
   P ≠ Q → P ∈ ℓ → Q ∈ ℓ → ℓ = line_through P Q
 -/

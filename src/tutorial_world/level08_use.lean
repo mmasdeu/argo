@@ -4,10 +4,6 @@ open set --hide
 
 
 /- Symbol:
-∃ : \exists
--/
-
-/- Symbol:
 ℓ : \ell
 -/
 
@@ -33,43 +29,33 @@ turn it into the impossible-to-prove `⊢ 1 + x = x + 0`.
 
 In further proofs, we will need to prove that there exists an object satisfying certain properties.
 The goal will then look like `⊢ ∃ x, P x`, where the symbol **`∃`** is read as **"there exists"** and
-**`P x`** can be understood as **"P is an element of x"**, which could also be written as **`P ∈ x`**.
-In this case, the whole goal can be interpreted as **"there exists x such that P is an element of x"**.
-Then, the `use` tactic is useful. If we know that an object `a` satisfies the  property `x`, then `use a` 
+**`P x`** can be understood as **"x satisfies property P"**.
+In this case, the whole goal can be interpreted as **"there exists x such that x satisfies P"**.
+Then, the `use` tactic is useful. If we know that an object `a` satisfies the  property `P`, then `use a` 
 will simplify the goal into ⊢ P a.
 
-Let's look at this level to understand it better! Delete the `sorry` to see the goal `⊢ ∃ (ℓ : Line Ω), P ∈ ℓ`.
-What does this mean? You can read it as **"there exists a line ℓ that lies in the plane Ω, such that the point P is an element of the line ℓ"**. 
-[**Tip:** do a drawing if it feels very abstract to you.] Then, we have to 
-find an object **?** that satisfies the property `ℓ`, so that we can type `use ?,` to simplify the goal into 
-`⊢ P ∈ ?`. Now, we should take a look at our "Theorem statements" section to ask ourselves if there is any statement
-that has a similar structure to the goal `⊢ P ∈ ?`. At this point, I am sure that you thought about `line_through_right`
-or `line_through_left`. The statement `⊢ P ∈ line_through P Q` is very similar to that in `⊢ P ∈ ?`, isn't it?
-
-Then, why don't we type `use line_through P Q,`. If you try that, you will see that an error appears. This is
-because we don't have such point called Q in this level. We only have one point! And it's called P! What does this mean?
-Do we have to create a line that goes from the point P to the point P again? Exactly! You may be wondering how is 
-that possible if a line cannot close itself as if it was a circle... in the plane! However, it **is** possible. We have not
-defined what is a plane yet! The computer doesn't know how a plane looks like! Because of this reason, you can type `use 
-line_through P P,` and see how the goal changes into `⊢ P ∈ line_through P P`. Now, try to finish the proof by your own! It's 
-only one more line of code! In case you get stuck, click on the grey box right below to look for a "Hint".
+In the example below, we are given three points and two lines. We know certain things about the points, and the
+goal is to find a line $\ell$ such that $P$ and $Q$ both belong to $\ell$. Think, looking at the hypotheses,
+which line could do the trick. Then `use` it, and finish the proof using tactics you already know.
 -/
 
+
 /- Hint : Click here for a hint, in case you get stuck.
-Because the goal is now `⊢ P ∈ line_through P P`, it shows the same structure as `line_through_left` and `line_through_right`
-statements. Try any of both to finish the proof by using the `exact` tactic. Remember to type the variables that we are using 
-before the comma!
+Notice that $s$ contains both $P$ and $Q$, so `use s` will take you in the right direction. If you have typed
+`use r`, you will have to delete it because that has taken you to a cul-de-sac.
 -/
 
 variables {Ω : Type} [IncidencePlane Ω] --hide
 
 /- Lemma : no-side-bar
-Given a point, there is always a line containing it.
+Fins a line that contains the points $P$ and $Q$ at the same time.
 -/
-lemma line_containing_point (P : Ω) : ∃ ℓ : Line Ω, P ∈ ℓ :=
+lemma line_containing_point (P Q R: Ω) (r s : Line Ω) (hP1 : P ∈ r) (hP2 : P ∈ s) (hR : R ∈ r) (hQ : Q ∈ s) :
+∃ ℓ : Line Ω, P ∈ ℓ ∧ Q ∈ ℓ :=
 begin
-  use line_through P P,
-  exact line_through_left P P,
+  use s,
+  split;
+  assumption,
 
 
 

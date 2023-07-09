@@ -53,9 +53,9 @@ and your original goal will have `q : Q` added to the list of hypotheses.
 
 ## The `have` tactic (boss level).
 
-Congratulations! You are half of the way to finish this world! In this level, we introduce the new tactic `have`. It is used to add a new hypothesis
+Congratulations! You are just finishing the tutorial world! In this level, we introduce the new tactic `have`. It is used to add a new hypothesis
 to the context (which, of course, you will have to prove!). This is sometimes useful to structure our proofs. In this particular level, it is convenient
-to prove first that `r = line_through B C`, and then that `s = line_through B C`. This strategy will allow us to finish the prove very easily!
+to prove first that `r = line_through B C`, and then that `s = line_through B C`. This strategy will allow us to finish the proof very easily!
 
 To use the tactic `have`, we should follow the following structure: `have h : A = B,`. This line will add the hypothesis `h : A = B` to the local
 context and break the proof into two goals. First, Lean will ask us to prove `⊢ A = B` without the hypothesis `h : A = B`. Then, it will ask us to
@@ -94,7 +94,7 @@ the goal `⊢ r = s` into `⊢ line_through B C = s`. Now, you will be wondering
 know why? Because the theorem statement called `incidence` works with the goal `⊢ s = line_through B C`, but not with `⊢ line_through B C = s`. Because of 
 this reason, we should create another hypothesis by using the `have` tactic. That is to say, type `have hs : s = line_through B C,` right before the curly braces.
 
-Now, two final goals are waiting to be proved! I'm sure that you are able to complete the level by your own! Make an effort to apply the knowledge that
+Now, two final goals are waiting to be proved! I'm sure that you are able to complete the level on your own! Make an effort to apply the knowledge that
 we have acquired so far! In case you get stuck, click right below for a hint. 
 
 -/

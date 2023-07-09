@@ -9,7 +9,7 @@ open IncidencePlane --hide
 We will see that
 a point can help us deciding that two lines are different.
 
-To solve this level, you just need three lines of code. Try to finish it by your own. 
+To solve this level, you just need three lines of code. Try to finish it on your own. 
 -/
 
 /- Hint : Click here for a hint, in case you get stuck.

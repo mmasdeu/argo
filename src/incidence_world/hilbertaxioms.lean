@@ -95,7 +95,8 @@ notation A `*` B `*` C := IncidencePlane.between A B C
 -- A1
 @[simp] lemma line_through_left (P Q : Ω) : P ∈ (line_through P Q) := line_through_left' P Q
 @[simp] lemma line_through_right (P Q : Ω) : Q ∈ (line_through P Q) := line_through_right' P Q
-lemma incidence {P Q : Ω} {ℓ : Line Ω} : P ≠ Q → P ∈ ℓ → Q ∈ ℓ → ℓ = line_through P Q := incidence'
+lemma incidence {P Q : Ω} {ℓ : Line Ω} (hPQ : P ≠ Q) (hPℓ: P ∈ ℓ) (hQℓ : Q ∈ ℓ) :
+	ℓ = line_through P Q := incidence' hPQ hPℓ hQℓ
 
 -- A2
 lemma line_contains_two_points (ℓ : Line Ω) : ∃ P Q : Ω, P ≠ Q ∧ ℓ = line_through P Q

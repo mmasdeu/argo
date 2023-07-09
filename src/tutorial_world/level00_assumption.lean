@@ -1,6 +1,38 @@
 import incidence_world.hilbertaxioms --hide
 open IncidencePlane --hide
 
+
+/- Symbol:
+⊢ : \|-
+-/
+
+
+/- Symbol:
+∧ : \and
+-/
+
+/- Symbol:
+¬ : \not
+-/
+
+/- Symbol:
+→ : \imp
+-/
+
+/- Symbol:
+
+↔ : \iff
+-/
+
+
+/- Symbol:
+∀ : \forall
+-/
+
+/- Symbol:
+∃ : \exists
+-/
+
 /- Tactic : assumption
 
 ## Summary
@@ -45,8 +77,8 @@ and only one. One writes `x : T` to say that the term $x$ is of type $T$ (you ca
 denote the plane). We will write this as `P : Ω`. The plane $\Omega$ is of type `Type` (this is a special type, whose terms are
 things like the plane, or the set of the real numbers, for example).
 
-There is also another special type called `Prop`. A term of type `Prop` is a true-false statement, like "it rains", "2+2 = 4",
-"2 + 3 = 7" (yes, they can be either True or False). A term of type `2+2=4` would be a proof of this fact.
+There is also another special type called `Prop`. A term of type `Prop` is a true-false statement, like "it rains", "2 + 2 = 4",
+"2 + 3 = 7" (yes, they can be either True or False). A term of type `2 + 2 = 4` would be a proof of this fact.
 We will write `h : 2 + 2 = 4` to mean exactly this: `h` is a proof of the fact that `2 + 2 = 4`, and we can use it in our proof.
 If we had `h' : 2 + 3 = 7` then we would probably be able to proof crazy things!
 

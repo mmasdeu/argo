@@ -34,7 +34,7 @@ could be useful for this level. As you've well deduced, `equal_lines_of_contain_
 is the right path to choose. However, note that it states `A ≠ B` and `r = s` instead of `A = B`and
 `r ≠ s`, respectively. Because of this reason, the `by_contra` tactic has to join the party. 
 
-Now, try to solve this level by your own in just three lines of code. [**Remember:** whenever you see
+Now, try to solve this level on your own in just three lines of code. [**Remember:** whenever you see
 a hypothesis of the form `h : P ≠ Q`, Lean can also understand it as `h : ¬ (P = Q)`, or `h : (P = Q) → false`.]
 -/
 

@@ -45,7 +45,7 @@ When it comes to them, there are up to four axioms of order. Their learning invo
 
 **B.4)** [This axiom will be learned in the following world.]
 
-In Level 5 of Betweenness World, we will learn the definition of **segment**, which can be inferred from the first three axioms of order.
+Later on this world we will learn the definition of **segment**, which can be inferred from the first three axioms of order.
 
 ## The axioms of order in Lean
 
@@ -95,8 +95,8 @@ begin
   },
   cases hB with hB1 hB2,
   {
-  exfalso,
-  exact hB1.1 h,
+    exfalso,
+    exact hB1.1 h,
   },
   exact hB2.2.1,
   

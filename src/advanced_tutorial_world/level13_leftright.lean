@@ -44,7 +44,7 @@ I'm sure that you know now what tactic makes progress with this type of goal. To
 Can you see that the hypothesis `h` assumes that the point C is an element of the `line_through A B`? Then, because the goal says that the point P is an
 element of the set of points A, B and C, there is no other way than changing the line ℓ into the `line_through A B`. Once you've done that, use the `intros`
 tactic to add two new hypotheses to the local context until you see the goal `⊢ P ∈ line_through A B`. From there, use the `cases` tactic to make the point P
-equal to the points A, B and C, in each of the cases. Try to finish the proof by your own. In case you get stuck, I recommend you to take a look at the previous levels. 
+equal to the points A, B and C, in each of the cases. Try to finish the proof on your own. In case you get stuck, I recommend you to take a look at the previous levels. 
 
 -/
 

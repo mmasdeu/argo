@@ -65,7 +65,7 @@ replace `h` with two new hypotheses, namely `h1 : P` and `h2 : Q`.
 This is done usually for aesthetic reasons, since `h.1` and `h.2` also serve
 as proofs of `P` and `Q`.
 
-Knowing that, I'm sure you can complete this level by your own. It's only two lines of code!
+Knowing that, I'm sure you can complete this level on your own. It's only two lines of code!
 -/
 
 /- Hint : Click here for a hint, in case you get stuck.

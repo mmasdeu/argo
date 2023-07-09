@@ -1,18 +1,6 @@
 import tutorial_world.level06_intro --hide
 open IncidencePlane --hide
 
-
-/- Symbol:
-∧ : \and
--/
-
-
-/- Symbol:
-
-↔ : \iff
-
--/
-
 /- Tactic : split
 
 ## Summary
@@ -69,8 +57,8 @@ then `Q → P`. In mathematics and logic, the **∧** symbol is read as **and**.
 Analogously, the **`↔`** symbol refers to a **double implication**, or an **if and only if** statement. In written mathematics, you could also
 find the **`↔`** symbol written as **iff**. 
 
-Because you are supposed to be making process, try to solve this level by your own. You can solve it in three lines of code. 
-After deleting `sorry` and typing `split,`, you will see that this level is remarkably similar to Level 5. Feel free to go back to it! 
+You should be able to solve this level on your own. You can solve it in three lines of code. 
+After deleting `sorry` and typing `split,`, you will see that this level is remarkably similar to a previous one. Feel free to go back to it! 
 [**Remember:** Whenever there are two goals to solve in Lean, you will always have to solve the above goal first, and then the one below.]
 -/
 

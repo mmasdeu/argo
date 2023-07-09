@@ -30,7 +30,7 @@ so it suffices to prove $P$".
 In this level, we introduce the new tactic `apply`. Suppose you are asked to prove a goal of the form `⊢ R` and you have a theorem statement called `h` which 
 ensures that `h : P → Q → R`. Then, `apply h` will change your goal into proving `⊢ Q` and `⊢ P`. Now, read the lemma and do a drawing of the situation. Once, 
 you're done, delete the 'sorry' and try to look for a theorem statement that ends with the form of the goal shown for this level: `⊢ line_through Q P = line_through P Q`.
-Can you see that `incidence` is the right theorem statement to use? Type `apply incidence,` and make an effort to finish the proof by your own.
+Can you see that `incidence` is the right theorem statement to use? Type `apply incidence,` and make an effort to finish the proof on your own.
 
 -/
 
