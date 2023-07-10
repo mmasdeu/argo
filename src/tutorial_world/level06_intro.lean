@@ -58,14 +58,14 @@ the local context of the type `h : IT RAINS` and the goal will just change into 
 
 To solve this level, you will need to use a new statement that has been added to the list of "Theorem statements": 
 
-* incidence (P Q : Point) (ℓ : Line) : P ≠ Q → P ∈ ℓ → Q ∈ ℓ → ℓ = line_through P Q
+* incidence : P ≠ Q → P ∈ ℓ → Q ∈ ℓ → ℓ = line_through P Q
 
 Now, delete the `sorry` and note how the goal changes into a list of implications. [**Pro tip:** instead of writing 
 several lines of code with the `intro` tactic, try to use the `intros` tactic. This will make the computer understand 
 that you want to create more than one hypothesis at the same time.] For example, if you type `intros h1 h2 h3 h4,`, four 
 new hypotheses will be added to your local context. Once you've added all the possible hypotheses to it, try to compare
 the goal with the `incidence` statement. Did you notice that we can `rewrite` that statement? Because we have the first
-three **hypotheses** of the statement, we can change the line `r` into `line_through A B`! Type `rewrite h1 h2 h4,` and 
+three **hypotheses** of the statement, we can change the line `r` into `line_through A B`! Type `rw incidence h1 h2 h4,` and 
 see how the goal changes. To close the goal, try to apply the same argument to the line `s`. 
 
 Bewildered? Click on the box right below for a hint.
@@ -73,8 +73,8 @@ Bewildered? Click on the box right below for a hint.
 -/
 
 /- Hint : Click here for a hint, in case you get stuck.
-In case you wrote `intros h1 h2 h3 h4 h5,` in the first line, after typing `rewrite h1 h2 h4,`, click on enter and
-write `rewrite h1 h3 h5,`. Now, the goal should change into `⊢ line_through A B = line_through A B`, but Lean finishes the 
+In case you wrote `intros h1 h2 h3 h4 h5,` in the first line, after typing `rw incidence h1 h2 h4,`, click on enter and
+write `rw incidence h1 h3 h5,`. Now, the goal should change into `⊢ line_through A B = line_through A B`, but Lean finishes the 
 proof for us because it realises that automatically!
 -/
 
