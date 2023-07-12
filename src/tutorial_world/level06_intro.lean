@@ -2,7 +2,7 @@ import incidence_world.hilbertaxioms -- hide
 open IncidencePlane --hide
 
 
-/- Axiom : incidence (P Q : Point) (ℓ : Line) :
+/- Axiom : incidence :
   P ≠ Q → P ∈ ℓ → Q ∈ ℓ → ℓ = line_through P Q
 -/
 

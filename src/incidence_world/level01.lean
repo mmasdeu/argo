@@ -14,7 +14,7 @@ line_through_right (P Q : Ω) :
 -/
 
 /- Axiom : AXIOM A1c
-incidence: (P Q : Ω) (ℓ : Line Ω)
+incidence: {P Q : Ω} {ℓ : Line Ω}
 (hPQ : P ≠ Q) (hPℓ : P ∈ ℓ) (hQℓ : Q ∈ ℓ) :
   ℓ = line_through P Q
 -/
