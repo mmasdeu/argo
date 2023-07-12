@@ -32,13 +32,21 @@ begin
   use line_through A B,
   simp,
   intros P h1 h2,
+  have hkey : line_through A C ≠ line_through B C,
+  {
+    apply ne_line_of_not_share_point A (line_through_left A C),
+    intro hc,
+    apply h,
+    have lABeqlBC : line_through A B = line_through B C,
+    {
+      apply equal_lines_of_contain_two_points hAB;
+      simp [hc],
+    },
+    rw lABeqlBC,
+    apply line_through_right,
+  },
   have hCP : P = C,
   {
-    have hkey : line_through A C ≠ line_through B C,
-    {
-      intro hc,
-      sorry
-    },
     apply equal_points_of_in_two_lines
       hkey h1 h2 (line_through_right A C) (line_through_right B C),
   },

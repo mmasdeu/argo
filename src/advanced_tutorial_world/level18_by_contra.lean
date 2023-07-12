@@ -47,7 +47,7 @@ try to close the goal in just one line by using the `equal_lines_of_contain_two_
 variables {Ω : Type} [IncidencePlane Ω] --hide
 variables {A B : Ω} --hide
 variables {r s : Line Ω} --hide
-/- Lemma : no-side-bar
+/- Lemma : 
 Two distinct lines have at most one point in common.
 -/
 lemma equal_points_of_in_two_lines

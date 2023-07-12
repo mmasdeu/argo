@@ -42,7 +42,7 @@ close two of the goals.
 variables {Ω : Type} [IncidencePlane Ω] -- hide
 variables {P Q : Ω} -- hide
 
-/- Lemma : no-side-bar
+/- Lemma :
 The line through two points is a symmetrical concept.
 -/
 lemma line_through_symmetrical (h : P ≠ Q) : line_through Q P = line_through P Q :=
