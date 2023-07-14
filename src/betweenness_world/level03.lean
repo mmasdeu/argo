@@ -43,20 +43,19 @@ A point that lies between two different collinear points shares the same line wi
 lemma between_points_share_line (h : A * B * C) (hAr : A ∈ r) (hCr : C ∈ r) : 
   B ∈ r :=
 begin
-	have hs : ∃ s, A ∈ s ∧ B ∈ s ∧ C ∈ s,
-    apply collinear_of_between,
-    exact h,
-    cases hs with s h1,
-    have hAC : A ≠ C,
-    {
+	have hs : ∃ s, A ∈ s ∧ B ∈ s ∧ C ∈ s := collinear_of_between h,
+  rcases hs with ⟨s, hAs, hBs, hCs⟩,
+  have hAC : A ≠ C,
+  {
       intro hAC,
       rw hAC at h,
       exact no_point_between_a_point h,
-    },
-    have hrs : r = s,
-    exact equal_lines_of_contain_two_points hAC hAr h1.1 hCr h1.2.2,
-    rw ← hrs at h1,
-    exact h1.2.1,
+  },
+  have hrs : r = s := equal_lines_of_contain_two_points hAC hAr hAs hCr hCs,
+  rw ← hrs at hBs,
+  assumption,
+
+
 
 
 

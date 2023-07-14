@@ -132,60 +132,32 @@ A set of points is collinear if they all lie on some line
 
 def collinear (A B C : Ω) := ∃ (ℓ : Line Ω), A ∈ ℓ ∧ B ∈ ℓ ∧ C ∈ ℓ
 
-/--
-This lemma is a rephrasing of the incidence axiom that
-doesn't mention `line_through`
--/ 
-lemma equal_lines_of_contain_two_points {A B : Ω}	{r s : Line Ω}
-(hAB: A ≠ B)	(hAr: A ∈ r) (hAs: A ∈ s) (hBr: B ∈ r) (hBs: B ∈ s) :	r = s :=
-by rw [incidence hAB hAr hBr, incidence hAB hAs hBs]
-
 -- The next lemmas allow us to deal with collinearity of sets
 meta def extfinish : tactic unit := `[ext, finish]
+
+lemma collinear_of_equal' (A B C D E F) (h : ({A, B, C} : set Ω) = {D, E, F}) : collinear A B C → collinear D E F
+:=
+begin
+{
+	intro h1,
+	rcases h1 with ⟨ℓ,⟨hA, hB, hC⟩⟩,
+	use ℓ,
+	have hABC : ∀ P, P ∈ ({A, B, C} : set Ω) → P ∈ ℓ ,
+	{
+		simp [hA, hB, hC],
+	},
+	simpa [h] using hABC,
+}
+end
 
 lemma collinear_of_equal (A B C D E F) (h : ({A, B, C} : set Ω) = {D, E, F} . extfinish) : collinear A B C ↔ collinear D E F
 :=
 begin
-rw collinear,
-rw collinear,
 split,
-{
-	intro h1,
-	cases h1 with ℓ hℓ,
-	rcases hℓ with ⟨hA, hB, hC⟩,
-	use ℓ,
-	simp at *,
-	have HH : D ∈ ({A, B, C} : set Ω) ∧ E ∈ ({A, B, C} : set Ω) ∧ F ∈ ({A, B, C} : set Ω),
-	{
-		rw h,
-		simp,
-	},
-	simp at HH,
-	rcases HH with ⟨H1, H2, H3⟩,
-	all_goals {rcases H1 with H | H | H, repeat{subst H}},
-	all_goals {rcases H2 with H | H | H, repeat{subst H}},
-	all_goals {rcases H3 with H | H | H, repeat{subst H}},
-	all_goals {tauto},
-},
-{
-	intro h1,
-	cases h1 with ℓ hℓ,
-	rcases hℓ with ⟨hE, hF, hG⟩,
-	use ℓ,
-	simp at *,
-	have HH : A ∈ ({D, E, F} : set Ω) ∧ B ∈ ({D, E, F} : set Ω) ∧ C ∈ ({D, E, F} : set Ω),
-	{
-		rw ←h,
-		simp,
-	},
-	simp at HH,
-	rcases HH with ⟨H1, H2, H3⟩,
-	all_goals {rcases H1 with H | H | H, repeat{subst H}},
-	all_goals {rcases H2 with H | H | H, repeat{subst H}},
-	all_goals {rcases H3 with H | H | H, repeat{subst H}},
-	all_goals {tauto},
-}
+exact collinear_of_equal' _ _ _ _ _ _ h,
+exact collinear_of_equal' _ _ _ _ _ _ (eq.symm h),
 end
+
 
 /--
 Two points P and Q lie on the same side of a line ℓ if the segment P⬝Q doesn't intersect ℓ

@@ -10,6 +10,11 @@ pasch (hnc: ¬ C ∈ line_through A B)
   (∃ E ,  E ∈ ℓ ∧ (A * E * C)) xor (∃ E, E ∈ ℓ ∧ (B * E * C))
 -/
 
+/- Axiom : collinear_of_equal
+lemma collinear_of_equal (A B C D E F)
+  {A, B, C} = {D, E, F} → collinear A B C ↔ collinear D E F
+-/
+
 /-
 # Plane Separation World
 
@@ -42,6 +47,15 @@ In Lean, the definition of `same_side` is represented as follows:
 [**Rule of thumb:** Whenever you see `same_side` in Lean, you may use the `rw` tactic to "unfold" its definition. In this way, it will be easier to understand what it means. If it is 
 located at the hypothesis `h2`, for example, then `rw same_side at h2,` will make progress. If it is located at the goal, then `rw same_side,` will be enough 
 to rewrite the goal.
+-/
+
+/-
+As a bonus, we have added a useful lemma (you could prove it easily at this stage, we
+are just saving you some time) that allows to change the order of the points that
+appear in a collinearity statement
+
+* `lemma collinear_of_equal (A B C D E F)
+  ({A, B, C} = {D, E, F}) → collinear A B C ↔ collinear D E F`
 -/
 
 variables {Ω : Type} [IncidencePlane Ω] --hide

@@ -86,19 +86,9 @@ Given three distinct collinear points A, B and C, if B lies between A and C, the
 -/
 lemma not_between_of_between : (A * B * C) → ¬ (B * A * C) :=
 begin
-
   intro h,
   have h2 := between_of_collinear (collinear_of_between h),
-  cases h2 with hA hB,
-  {
-    exact hA.2.1,
-  },
-  cases hB with hB1 hB2,
-  {
-    exfalso,
-    exact hB1.1 h,
-  },
-  exact hB2.2.1,
+  tauto,
   
 
 

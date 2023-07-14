@@ -28,8 +28,9 @@ lemma no_point_between_a_point {A x : Ω} : ¬ (A * x * A) :=
 begin
   intro h,
   have hAx : A ≠ x ∧ A ≠ A ∧ x ≠ A,
-  apply different_of_between,
-  exact h,
+  {
+    apply different_of_between h,
+  },
   tauto,
 
 

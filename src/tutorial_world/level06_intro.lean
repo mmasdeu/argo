@@ -85,7 +85,7 @@ variables {A B : Ω} {r s : Line Ω} -- hide
 /- Lemma : no-side-bar
 If two lines contain two distinct points, then they are the same line.
 -/
-lemma equal_lines_of_contain_two_points_ :
+lemma equal_lines_of_contain_two_points :
 A ≠ B → A ∈ r → A ∈ s → B ∈ r → B ∈ s → r = s :=
 begin
   intros h1 h2 h3 h4 h5,
