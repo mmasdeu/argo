@@ -29,7 +29,7 @@ it will also pass through either a point of the segment B·C or a point of the s
 In Lean, the Pasch's Axiom may be useful to complete following levels:
 
 * `lemma pasch {A B C D : Ω} {ℓ : Line Ω} (hnc: C ∉ line_through A B)
-(hnAl: A ∉ ℓ) (hnBl: B ∉ ℓ) (hnCl: C ∉ ℓ) (hDl: D ∉ ℓ) (hADB: A * D * B) :
+(hnAl: A ∉ ℓ) (hnBl: B ∉ ℓ) (hnCl: C ∉ ℓ) (hDl: D ∈ ℓ) (hADB: A * D * B) :
 (∃ E ,  E ∈ ℓ ∧ (A * E * C)) xor (∃ E, E ∈ ℓ ∧ (B * E * C))`
 
 ![Axiom Pasch](pasch.png "Pasch's Axiom, the fourth axiom of betweenness")

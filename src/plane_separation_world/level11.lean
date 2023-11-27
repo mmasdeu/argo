@@ -69,5 +69,30 @@ begin
     sorry
   }
 -/
+have hℓm : ℓ ≠ m, -- Prove that ℓ ≠ m
+{
+  exact (ne_of_mem_of_not_mem' hAm hAs).symm,
+},
+have hD : ∃ D, D ∈ ℓ ∧ D ∉ m, -- Therefore, there is a point in ℓ not in m.
+{
+  exact point_in_line_difference hℓm,
+},
+rcases hD with ⟨D, ⟨hDℓ, hDm⟩⟩,
+have hDA : D ≠ A,
+{
   sorry
+},
+have hE : ∃ E, D * A * E, -- Prove that there is point E such that D * A * E
+{
+  sorry
+},
+cases hE with E hDAE,
+use E, -- This is the sought E, prove it!
+split,
+{ -- Prove that E ∉ m 
+  sorry
+},
+{ -- Prove that same_side ℓ A E
+  sorry,
+}
 end
